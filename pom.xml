@@ -34,6 +34,7 @@
 
     <modules>
         <module>components/org.wso2.identity.outbound.oidc.auth.service</module>
+        <module>components/org.wso2.identity.outbound.oidc.auth.client</module>
     </modules>
 
     <scm>
@@ -117,6 +118,54 @@
                 <groupId>org.wso2.orbit.org.apache.oltu.oauth2</groupId>
                 <artifactId>oltu</artifactId>
                 <version>${oltu.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                <version>${apache.felix.scr.ds.annotations.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.osgi</groupId>
+                <artifactId>org.eclipse.osgi.services</artifactId>
+                <version>${equinox.osgi.services.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.osgi</groupId>
+                <artifactId>org.eclipse.osgi</artifactId>
+                <version>${eclipse.osgi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.identity.framework</groupId>
+                <artifactId>org.wso2.carbon.identity.application.authentication.framework</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.ops4j.pax.logging</groupId>
+                        <artifactId>pax-logging-log4j2</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.identity.framework</groupId>
+                <artifactId>org.wso2.carbon.identity.application.common</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.identity.framework</groupId>
+                <artifactId>org.wso2.carbon.identity.core</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.orbit.com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbusds.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.minidev</groupId>
+                <artifactId>json-smart</artifactId>
+                <version>${json-smart.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -407,6 +456,29 @@
         <maven.findbugsplugin.version>3.0.5</maven.findbugsplugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <java.version>1.8</java.version>
+
+        <imp.pkg.version.javax.servlet>[2.6.0, 3.0.0)</imp.pkg.version.javax.servlet>
+        <tomcat.version>9.0.31.wso2v1</tomcat.version>
+        <commons.io.wso2.osgi.version.range>[2.4.0,3.0.0)</commons.io.wso2.osgi.version.range>
+        <osgi.service.component.imp.pkg.version.range>[1.2.0, 2.0.0)</osgi.service.component.imp.pkg.version.range>
+        <osgi.service.http.imp.pkg.version.range>[1.2.1, 2.0.0)</osgi.service.http.imp.pkg.version.range>
+        <osgi.framework.imp.pkg.version.range>[1.7.0, 2.0.0)</osgi.framework.imp.pkg.version.range>
+        <equinox.osgi.services.version>3.3.100.v20130513-1956</equinox.osgi.services.version>
+        <apache.felix.scr.ds.annotations.version>1.2.8</apache.felix.scr.ds.annotations.version>
+        <eclipse.osgi.version>3.9.1.v20130814-1242</eclipse.osgi.version>
+        <maven.bundle.plugin.version>3.2.0</maven.bundle.plugin.version>
+        <carbon.identity.framework.version>5.20.91</carbon.identity.framework.version>
+        <carbon.identity.inbound.oauth.package.import.version.range>[6.0.0, 7.0.0)
+        </carbon.identity.inbound.oauth.package.import.version.range>
+        <carbon.kernel.package.import.version.range>[4.5.0, 5.0.0)</carbon.kernel.package.import.version.range>
+
+        <oltu.package.import.version.range>[1.0.0, 2.0.0)</oltu.package.import.version.range>
+        <identity.framework.package.import.version.range>[5.14.0, 6.0.0)
+        </identity.framework.package.import.version.range>
+        <nimbusds.version>7.3.0.wso2v1</nimbusds.version>
+        <nimbusds.osgi.version.range>[7.3.0,8.0.0)</nimbusds.osgi.version.range>
+        <json-smart.version>2.4.7</json-smart.version>
+        <net.minidev.json.imp.pkg.version.range>[2.3.0, 3.0.0)</net.minidev.json.imp.pkg.version.range>
     </properties>
 
 </project>
