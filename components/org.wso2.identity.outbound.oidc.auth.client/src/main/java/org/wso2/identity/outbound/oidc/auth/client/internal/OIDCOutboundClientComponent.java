@@ -31,7 +31,7 @@ import org.wso2.identity.outbound.oidc.auth.client.CustomOIDCAuthenticator;
  * Used to register CustomOIDC Authenticator.
  */
 @Component(
-        name = "org.wso2.idenitity.outbound.oidc.auth.client",
+        name = "org.wso2.identity.outbound.oidc.auth.client",
         immediate = true
 )
 public class OIDCOutboundClientComponent {

@@ -73,7 +73,7 @@ TID: [1] [2022-09-21 07:58:06,124] [] : iam-cloud-outbound-oidc-service :  INFO 
 
 ### Setting up Identity Server.
 
-The microservice client jar can be found in `PROJECT_HOME/components/org.wso2.identity.outbound.oidc.auth.client/target` directory as `org.wso2.idenitity.outbound.oidc.auth.client-<version>.jar`
+The microservice client jar can be found in `PROJECT_HOME/components/org.wso2.identity.outbound.oidc.auth.client/target` directory as `org.wso2.identity.outbound.oidc.auth.client-<version>.jar`
 
 Copy that jar file to `IS_HOME/repository/components/dropins` directory.
 
