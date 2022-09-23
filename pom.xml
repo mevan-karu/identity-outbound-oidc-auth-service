@@ -29,7 +29,7 @@
     <artifactId>identity-outbound-oidc-auth-service</artifactId>
     <groupId>org.wso2.identity.outbound.oidc.auth</groupId>
     <packaging>pom</packaging>
-    <version>0.0.7-SNAPSHOT</version>
+    <version>0.0.7</version>
 
     <modules>
         <module>components/org.wso2.identity.outbound.oidc.auth.service</module>
@@ -41,7 +41,7 @@
         <developerConnection>scm:git:https://github.com/wso2-incubator/identity-outbound-oidc-auth-service.git
         </developerConnection>
         <connection>scm:git:https://github.com/wso2-incubator/identity-outbound-oidc-auth-service.git</connection>
-        <tag>HEAD</tag>
+        <tag>v0.0.7</tag>
     </scm>
 
     <dependencyManagement>
