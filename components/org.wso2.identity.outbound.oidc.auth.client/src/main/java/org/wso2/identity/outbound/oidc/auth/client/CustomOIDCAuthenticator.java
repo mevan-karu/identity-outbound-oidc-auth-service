@@ -62,12 +62,7 @@ public class CustomOIDCAuthenticator extends AbstractApplicationAuthenticator
         implements FederatedApplicationAuthenticator {
 
     private static final Log log = LogFactory.getLog(CustomOIDCAuthenticator.class);
-    private OIDCOutboundClient oidcOutboundClient;
 
-    public CustomOIDCAuthenticator() {
-
-        this.oidcOutboundClient = new OIDCOutboundClient();
-    }
 
     @Override
     public boolean canHandle(HttpServletRequest request) {
@@ -82,7 +77,7 @@ public class CustomOIDCAuthenticator extends AbstractApplicationAuthenticator
                         .addParamValue(getRequestState(request)).build())
                 .build();
 
-        return oidcOutboundClient.canHandle(req, getAuthenticatorConfig().getParameterMap().get("url"));
+        return OIDCOutboundClient.getInstance().canHandle(req, getAuthenticatorConfig().getParameterMap().get("url"));
     }
 
     @Override
@@ -172,8 +167,8 @@ public class CustomOIDCAuthenticator extends AbstractApplicationAuthenticator
             InitAuthRequest initAuthRequest = InitAuthRequest.newBuilder()
                     .setAuthenticationContext(authenticationContext).build();
 
-            InitAuthResponse initAuthResponse = oidcOutboundClient.initiateAuthenticationRequest(initAuthRequest,
-                    getAuthenticatorConfig().getParameterMap().get("url"));
+            InitAuthResponse initAuthResponse = OIDCOutboundClient.getInstance().initiateAuthenticationRequest(
+                    initAuthRequest, getAuthenticatorConfig().getParameterMap().get("url"));
             if (initAuthResponse != null && initAuthResponse.getIsRedirect()) {
                 response.sendRedirect(initAuthResponse.getRedirectUrl());
             } else {

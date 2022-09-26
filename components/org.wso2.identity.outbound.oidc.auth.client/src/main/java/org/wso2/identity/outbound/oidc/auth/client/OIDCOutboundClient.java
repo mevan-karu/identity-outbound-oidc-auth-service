@@ -36,6 +36,23 @@ public class OIDCOutboundClient {
 
     private static final Log log = LogFactory.getLog(OIDCOutboundClient.class);
 
+    /**
+     * OIDCOutboundClient lazy holder.
+     */
+    private static class OIDCOutboundClientLazyHolder {
+
+        static final OIDCOutboundClient INSTANCE = new OIDCOutboundClient();
+    }
+
+    /**
+     * Get an OIDCOutboundClient instance.
+     *
+     * @return OIDCOutboundClient object.
+     */
+    public static OIDCOutboundClient getInstance() {
+
+        return OIDCOutboundClientLazyHolder.INSTANCE;
+    }
 
     public Boolean canHandle(Request request, String connectionTarget) {
 
