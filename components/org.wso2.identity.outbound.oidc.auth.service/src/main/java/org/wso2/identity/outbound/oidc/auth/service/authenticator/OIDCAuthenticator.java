@@ -18,19 +18,35 @@
 
 package org.wso2.identity.outbound.oidc.auth.service.authenticator;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.oltu.oauth2.client.OAuthClient;
+import org.apache.oltu.oauth2.client.URLConnectionClient;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
+import org.apache.oltu.oauth2.client.response.OAuthClientResponse;
+import org.apache.oltu.oauth2.common.OAuth;
+import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
+import org.apache.oltu.oauth2.common.message.types.GrantType;
+import org.apache.oltu.oauth2.common.utils.JSONUtils;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.Request;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +62,7 @@ public class OIDCAuthenticator {
     private static final Log log = LogFactory.getLog(OIDCAuthenticator.class);
     private static final String DYNAMIC_PARAMETER_LOOKUP_REGEX = "\\$\\{(\\w+)\\}";
     private static Pattern pattern = Pattern.compile(DYNAMIC_PARAMETER_LOOKUP_REGEX);
+    private static final String[] NON_USER_ATTRIBUTES = new String[]{"at_hash", "iss", "iat", "exp", "aud", "azp"};
 
     public static boolean canHandle(Request request) {
 
@@ -58,7 +75,6 @@ public class OIDCAuthenticator {
     }
 
     public static String initiateAuthRequest(InitAuthRequest initAuthRequest) {
-
 
         String redirectURL = null;
         try {
@@ -135,6 +151,104 @@ public class OIDCAuthenticator {
             log.error("Error occurred while initiating authentication request.", e);
         }
         return redirectURL;
+    }
+
+    public static void processAuthenticationResponse(ProcessAuthRequest processAuthRequest,
+                                                     ProcessAuthResponse processAuthResponse) {
+
+        try {
+            Map<String, String> requestQueryParamMap =
+                    getRequestQueryParamMap(processAuthRequest.getRequest().getQueryString());
+            OAuthClientRequest accessTokenRequest = getAccessTokenRequest(processAuthRequest.
+                    getAuthenticationContext().getAuthenticatorPropertiesMap(), requestQueryParamMap.get("code"));
+
+            OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
+            OAuthClientResponse tokenResponse = oAuthClient.accessToken(accessTokenRequest);
+
+            String accessToken = tokenResponse.getParam(OIDCAuthenticatorConstants.ACCESS_TOKEN);
+            String idToken = tokenResponse.getParam(OIDCAuthenticatorConstants.ID_TOKEN);
+
+            Map<String, Object> idTokenAttributes = getIdTokenClaims(idToken);
+
+            Map<String, String> userAttributes = idTokenAttributes.entrySet().stream()
+                    .filter(entry -> !ArrayUtils.contains(NON_USER_ATTRIBUTES, entry.getKey()))
+                    .collect(Collectors.toMap(entry -> entry.getKey(), entry -> (String) entry.getValue()));
+            AuthenticatedUser authenticatedUser = AuthenticatedUser.newBuilder()
+                    .setIsFederatedUser(true)
+                    .putAllUserAttributes(userAttributes).build();
+            processAuthResponse.toBuilder()
+                    .putAuthenticationData(OIDCAuthenticatorConstants.ACCESS_TOKEN, accessToken)
+                    .putAuthenticationData(OIDCAuthenticatorConstants.ID_TOKEN, idToken)
+                    .setAuthenticatedUser(authenticatedUser)
+                    .build();
+        } catch (UnsupportedEncodingException | OAuthProblemException | OAuthSystemException e) {
+            log.error("Error occurred while processing authentication response.", e);
+        }
+    }
+
+    private static OAuthClientRequest getAccessTokenRequest(Map<String, String> authenticatorProperties,
+                                                            String authCode) {
+
+        String clientId = authenticatorProperties.get(OIDCAuthenticatorConstants.CLIENT_ID);
+        String clientSecret = authenticatorProperties.get(OIDCAuthenticatorConstants.CLIENT_SECRET);
+        String tokenEndPoint = authenticatorProperties.get(OIDCAuthenticatorConstants.OAUTH2_TOKEN_URL);
+        String callbackUrl = authenticatorProperties.get(OIDCAuthenticatorConstants.OAuth20Params.REDIRECT_URI);
+        boolean isHTTPBasicAuth = Boolean.parseBoolean(authenticatorProperties.get(OIDCAuthenticatorConstants
+                .IS_BASIC_AUTH_ENABLED));
+        OAuthClientRequest accessTokenRequest = null;
+        try {
+            if (isHTTPBasicAuth) {
+                if (log.isDebugEnabled()) {
+                    log.debug("Authenticating to token endpoint: " + tokenEndPoint + " with HTTP basic " +
+                            "authentication scheme.");
+                }
+                accessTokenRequest = OAuthClientRequest.tokenLocation(tokenEndPoint).setGrantType(GrantType
+                                .AUTHORIZATION_CODE).setRedirectURI(callbackUrl).setCode(authCode)
+                        .buildBodyMessage();
+                String base64EncodedCredential = new String(Base64.encodeBase64((clientId + ":" +
+                        clientSecret).getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8);
+                accessTokenRequest.addHeader(OAuth.HeaderType.AUTHORIZATION, "Basic " + base64EncodedCredential);
+            } else {
+                if (log.isDebugEnabled()) {
+                    log.debug("Authenticating to token endpoint: " + tokenEndPoint + " including client credentials "
+                            + "in request body.");
+                }
+                accessTokenRequest = OAuthClientRequest.tokenLocation(tokenEndPoint).setGrantType(GrantType
+                        .AUTHORIZATION_CODE).setClientId(clientId).setClientSecret(clientSecret).setRedirectURI
+                        (callbackUrl).setCode(authCode).buildBodyMessage();
+            }
+            // set 'Origin' header to access token request.
+            if (accessTokenRequest != null) {
+                // fetch the 'Hostname' configured in carbon.xml
+                accessTokenRequest.addHeader(OIDCAuthenticatorConstants.HTTP_ORIGIN_HEADER,
+                        new URI(callbackUrl).getHost());
+            }
+        } catch (OAuthSystemException | URISyntaxException e) {
+            log.error("Error while retrieving access token.", e);
+        }
+        return accessTokenRequest;
+    }
+
+    private static Map<String, Object> getIdTokenClaims(String idToken) {
+
+        String base64Body = idToken.split("\\.")[1];
+        byte[] decoded = Base64.decodeBase64(base64Body.getBytes(StandardCharsets.UTF_8));
+        return JSONUtils.parseJSON(new String(decoded, StandardCharsets.UTF_8));
+    }
+
+    private static Map<String, String> getRequestQueryParamMap(String queryString) throws UnsupportedEncodingException {
+
+        if (StringUtils.isEmpty(queryString)) {
+            return Collections.EMPTY_MAP;
+        }
+        Map<String, String> queryParams = new HashMap<>();
+        String[] pairs = queryString.split("&");
+        for (String pair : pairs) {
+            String[] keyValuePair = pair.split("=");
+            queryParams.put(URLDecoder.decode(keyValuePair[0], StandardCharsets.UTF_8.name()),
+                    URLDecoder.decode(keyValuePair[1], StandardCharsets.UTF_8.name()));
+        }
+        return queryParams;
     }
 
     private static Map<String, List<String>> getRequestParams(Request request) {
