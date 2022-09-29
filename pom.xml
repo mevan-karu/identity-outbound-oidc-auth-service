@@ -166,6 +166,21 @@
                 <artifactId>json-smart</artifactId>
                 <version>${json-smart.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.wso2.orbit.commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.orbit.com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbusds.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json.wso2</groupId>
+                <artifactId>json</artifactId>
+                <version>${json.wso2.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -437,6 +452,7 @@
         <commons-configuration2.version>2.7</commons-configuration2.version>
         <commons-io.version>2.8.0</commons-io.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <commons-codec.version>1.14.0.wso2v1</commons-codec.version>
         <log4j-core.version>2.17.1</log4j-core.version>
         <log4j-jcl.version>2.17.1</log4j-jcl.version>
         <slf4j.version>1.7.30</slf4j.version>
@@ -478,6 +494,7 @@
         <nimbusds.osgi.version.range>[7.3.0,8.0.0)</nimbusds.osgi.version.range>
         <json-smart.version>2.4.7</json-smart.version>
         <net.minidev.json.imp.pkg.version.range>[2.3.0, 3.0.0)</net.minidev.json.imp.pkg.version.range>
+        <json.wso2.version>3.0.0.wso2v1</json.wso2.version>
     </properties>
 
 </project>

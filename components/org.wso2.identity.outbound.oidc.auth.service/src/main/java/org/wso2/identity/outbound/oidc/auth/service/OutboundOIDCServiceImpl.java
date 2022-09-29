@@ -27,6 +27,8 @@ import org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceGrpc;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.Request;
 
 /**
@@ -56,6 +58,16 @@ public class OutboundOIDCServiceImpl extends OutboundOIDCServiceGrpc.OutboundOID
         InitAuthResponse initAuthResponse = InitAuthResponse.newBuilder().setIsRedirect(isRedirect)
                 .setRedirectUrl(redirectURL).build();
         responseObserver.onNext(initAuthResponse);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void processAuthenticationResponse(ProcessAuthRequest request,
+                                              StreamObserver<ProcessAuthResponse> responseObserver) {
+
+        ProcessAuthResponse processAuthResponse = OIDCAuthenticator
+                .processAuthenticationResponse(request);
+        responseObserver.onNext(processAuthResponse);
         responseObserver.onCompleted();
     }
 }
