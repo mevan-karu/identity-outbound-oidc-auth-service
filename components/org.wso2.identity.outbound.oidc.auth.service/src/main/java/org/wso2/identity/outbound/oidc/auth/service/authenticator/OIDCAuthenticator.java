@@ -102,6 +102,7 @@ public class OIDCAuthenticator {
                         }
                     }
                 }
+                paramValueMap.put("scope", "openid");
 
                 String scope = paramValueMap.get(OIDCAuthenticatorConstants.OAuth20Params.SCOPE);
 
@@ -153,8 +154,7 @@ public class OIDCAuthenticator {
         return redirectURL;
     }
 
-    public static void processAuthenticationResponse(ProcessAuthRequest processAuthRequest,
-                                                     ProcessAuthResponse processAuthResponse) {
+    public static ProcessAuthResponse processAuthenticationResponse(ProcessAuthRequest processAuthRequest) {
 
         try {
             Map<String, String> requestQueryParamMap =
@@ -172,17 +172,19 @@ public class OIDCAuthenticator {
 
             Map<String, String> userAttributes = idTokenAttributes.entrySet().stream()
                     .filter(entry -> !ArrayUtils.contains(NON_USER_ATTRIBUTES, entry.getKey()))
-                    .collect(Collectors.toMap(entry -> entry.getKey(), entry -> (String) entry.getValue()));
+                    .collect(Collectors.toMap(entry -> entry.getKey(), entry -> String.valueOf(entry.getValue())));
             AuthenticatedUser authenticatedUser = AuthenticatedUser.newBuilder()
                     .setIsFederatedUser(true)
                     .putAllUserAttributes(userAttributes).build();
-            processAuthResponse.toBuilder()
+            ProcessAuthResponse processAuthResponse = ProcessAuthResponse.newBuilder()
                     .putAuthenticationData(OIDCAuthenticatorConstants.ACCESS_TOKEN, accessToken)
                     .putAuthenticationData(OIDCAuthenticatorConstants.ID_TOKEN, idToken)
                     .setAuthenticatedUser(authenticatedUser)
                     .build();
+            return processAuthResponse;
         } catch (UnsupportedEncodingException | OAuthProblemException | OAuthSystemException e) {
             log.error("Error occurred while processing authentication response.", e);
+            return null;
         }
     }
 
@@ -192,7 +194,7 @@ public class OIDCAuthenticator {
         String clientId = authenticatorProperties.get(OIDCAuthenticatorConstants.CLIENT_ID);
         String clientSecret = authenticatorProperties.get(OIDCAuthenticatorConstants.CLIENT_SECRET);
         String tokenEndPoint = authenticatorProperties.get(OIDCAuthenticatorConstants.OAUTH2_TOKEN_URL);
-        String callbackUrl = authenticatorProperties.get(OIDCAuthenticatorConstants.OAuth20Params.REDIRECT_URI);
+        String callbackUrl = authenticatorProperties.get(OIDCAuthenticatorConstants.IdPConfParams.CALLBACK_URL);
         boolean isHTTPBasicAuth = Boolean.parseBoolean(authenticatorProperties.get(OIDCAuthenticatorConstants
                 .IS_BASIC_AUTH_ENABLED));
         OAuthClientRequest accessTokenRequest = null;

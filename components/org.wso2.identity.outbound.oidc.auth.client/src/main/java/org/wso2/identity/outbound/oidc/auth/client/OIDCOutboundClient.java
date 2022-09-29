@@ -27,6 +27,8 @@ import org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceGrpc;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.Request;
 
 /**
@@ -78,6 +80,21 @@ public class OIDCOutboundClient {
         try {
             InitAuthResponse response = stub.initiateAuthentication(authRequest);
             return response;
+        } catch (StatusRuntimeException ex) {
+            log.error("Error connecting OIDC Outbound service", ex);
+        }
+        return null;
+    }
+
+    public ProcessAuthResponse processAuthenticationResponse(ProcessAuthRequest processAuthRequest,
+                                                             String connectionTarget) {
+
+        ManagedChannel managedChannel = RPCConnection.getInstance().getOutboundAuthenticatorChannel(connectionTarget);
+        OutboundOIDCServiceGrpc.OutboundOIDCServiceBlockingStub stub
+                = OutboundOIDCServiceGrpc.newBlockingStub(managedChannel);
+
+        try {
+            return stub.processAuthenticationResponse(processAuthRequest);
         } catch (StatusRuntimeException ex) {
             log.error("Error connecting OIDC Outbound service", ex);
         }

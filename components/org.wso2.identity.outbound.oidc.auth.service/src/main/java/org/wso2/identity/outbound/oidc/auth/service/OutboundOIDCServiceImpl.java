@@ -65,8 +65,8 @@ public class OutboundOIDCServiceImpl extends OutboundOIDCServiceGrpc.OutboundOID
     public void processAuthenticationResponse(ProcessAuthRequest request,
                                               StreamObserver<ProcessAuthResponse> responseObserver) {
 
-        ProcessAuthResponse processAuthResponse = ProcessAuthResponse.newBuilder().buildPartial();
-        OIDCAuthenticator.processAuthenticationResponse(request, processAuthResponse);
+        ProcessAuthResponse processAuthResponse = OIDCAuthenticator
+                .processAuthenticationResponse(request);
         responseObserver.onNext(processAuthResponse);
         responseObserver.onCompleted();
     }

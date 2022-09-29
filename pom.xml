@@ -176,6 +176,11 @@
                 <artifactId>nimbus-jose-jwt</artifactId>
                 <version>${nimbusds.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.json.wso2</groupId>
+                <artifactId>json</artifactId>
+                <version>${json.wso2.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -489,6 +494,7 @@
         <nimbusds.osgi.version.range>[7.3.0,8.0.0)</nimbusds.osgi.version.range>
         <json-smart.version>2.4.7</json-smart.version>
         <net.minidev.json.imp.pkg.version.range>[2.3.0, 3.0.0)</net.minidev.json.imp.pkg.version.range>
+        <json.wso2.version>3.0.0.wso2v1</json.wso2.version>
     </properties>
 
 </project>

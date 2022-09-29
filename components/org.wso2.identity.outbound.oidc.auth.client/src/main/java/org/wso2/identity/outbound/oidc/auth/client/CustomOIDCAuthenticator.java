@@ -24,7 +24,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.oltu.oauth2.client.OAuthClient;
-import org.apache.oltu.oauth2.client.URLConnectionClient;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
 import org.apache.oltu.oauth2.client.response.OAuthAuthzResponse;
 import org.apache.oltu.oauth2.client.response.OAuthClientResponse;
@@ -41,6 +40,8 @@ import org.wso2.carbon.identity.core.util.IdentityUtil;
 import org.wso2.identity.outbound.oidc.auth.client.constants.CustomOIDCAuthenticatorConstants;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest;
+import org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse;
 import org.wso2.identity.outbound.oidc.auth.service.rpc.Request;
 
 import java.io.IOException;
@@ -183,46 +184,62 @@ public class CustomOIDCAuthenticator extends AbstractApplicationAuthenticator
     protected void processAuthenticationResponse(HttpServletRequest request, HttpServletResponse response,
                                                  AuthenticationContext context) throws AuthenticationFailedException {
 
-        try {
-            /* Process authentication response to get the id token to set the subject to the
-             Authentication context from the sub claim value. */
-            OAuthAuthzResponse authzResponse = OAuthAuthzResponse.oauthCodeAuthzResponse(request);
-            OAuthClientRequest accessTokenRequest = getAccessTokenRequest(context, authzResponse);
-            OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
-            OAuthClientResponse oAuthResponse = getOauthResponse(oAuthClient, accessTokenRequest);
-            String accessToken = oAuthResponse.getParam(CustomOIDCAuthenticatorConstants.ACCESS_TOKEN);
+        Request req = Request.newBuilder()
+                .setRequestURL(request.getRequestURI())
+                .setQueryString(request.getQueryString())
+                .addRequestParams(
+                        Request.RequestParam.newBuilder()
+                        .setParamName(CustomOIDCAuthenticatorConstants.OAUTH2_PARAM_STATE)
+                        .addParamValue(getRequestState(request)).build())
+                .build();
 
-            if (StringUtils.isBlank(accessToken)) {
-                throw new AuthenticationFailedException("Access token is empty or null");
-            }
+        Map<String, String> authenticatorProperties = context.getAuthenticatorProperties();
+        org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext authenticationContext
+                = org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext.newBuilder()
+                .putAllAuthenticatorProperties(authenticatorProperties)
+                .setContextIdentifier(context.getContextIdentifier())
+                .putAllAuthenticatorParams(context.getAuthenticatorParams(context.getCurrentAuthenticator()))
+                .build();
 
-            String idToken = oAuthResponse.getParam(CustomOIDCAuthenticatorConstants.ACCESS_TOKEN);
-            if (StringUtils.isBlank(idToken)) {
-                throw new AuthenticationFailedException("Id token is required and is missing in OIDC response");
-            }
+        ProcessAuthRequest processAuthRequest = ProcessAuthRequest.newBuilder()
+                .setAuthenticationContext(authenticationContext)
+                .setRequest(req)
+                .build();
 
-            context.setProperty(CustomOIDCAuthenticatorConstants.ACCESS_TOKEN, accessToken);
+        ProcessAuthResponse processAuthResponse = OIDCOutboundClient.getInstance().processAuthenticationResponse(
+                processAuthRequest, getAuthenticatorConfig().getParameterMap().get("url"));
 
-            AuthenticatedUser authenticatedUser;
-            Map<String, Object> jsonObject = new HashMap<>();
-
-            if (StringUtils.isNotBlank(idToken)) {
-                jsonObject = getIdTokenClaims(context, idToken);
-                String authenticatedUserId = getAuthenticateUser(jsonObject);
-                if (authenticatedUserId == null) {
-                    throw new AuthenticationFailedException("Cannot find the userId from the id_token sent " +
-                            "by the federated IDP.");
-                }
-                authenticatedUser = AuthenticatedUser
-                        .createFederateAuthenticatedUserFromSubjectIdentifier(authenticatedUserId);
-            } else {
-                authenticatedUser = AuthenticatedUser.createFederateAuthenticatedUserFromSubjectIdentifier(
-                        getAuthenticateUser(jsonObject));
-            }
-            context.setSubject(authenticatedUser);
-        } catch (OAuthProblemException e) {
-            throw new AuthenticationFailedException("Authentication process failed", e);
+        String accessToken = processAuthResponse.getAuthenticationDataOrDefault(
+                CustomOIDCAuthenticatorConstants.ACCESS_TOKEN, StringUtils.EMPTY);
+        if (StringUtils.isBlank(accessToken)) {
+            throw new AuthenticationFailedException("Access token is empty or null");
         }
+
+        context.setProperty(CustomOIDCAuthenticatorConstants.ACCESS_TOKEN, accessToken);
+
+        String idToken = processAuthResponse.getAuthenticationDataOrDefault(
+                CustomOIDCAuthenticatorConstants.ID_TOKEN, StringUtils.EMPTY);
+        if (StringUtils.isBlank(idToken)) {
+            throw new AuthenticationFailedException("Id token is required and is missing in OIDC response");
+        }
+
+        AuthenticatedUser authenticatedUser;
+        Map<String, Object> jsonObject = new HashMap<>();
+
+        if (StringUtils.isNotBlank(idToken)) {
+            jsonObject = getIdTokenClaims(context, idToken);
+            String authenticatedUserId = getAuthenticateUser(jsonObject);
+            if (authenticatedUserId == null) {
+                throw new AuthenticationFailedException("Cannot find the userId from the id_token sent " +
+                        "by the federated IDP.");
+            }
+            authenticatedUser = AuthenticatedUser
+                    .createFederateAuthenticatedUserFromSubjectIdentifier(authenticatedUserId);
+        } else {
+            authenticatedUser = AuthenticatedUser.createFederateAuthenticatedUserFromSubjectIdentifier(
+                    getAuthenticateUser(jsonObject));
+        }
+        context.setSubject(authenticatedUser);
     }
 
     @Override
