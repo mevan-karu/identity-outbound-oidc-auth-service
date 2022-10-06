@@ -28,10 +28,10 @@
     </modules>
 
     <scm>
-        <url>https://github.com/wso2-incubator/identity-outbound-oidc-auth-service.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-incubator/identity-outbound-oidc-auth-service.git
+        <url>https://github.com/wso2-enterprise/identity-outbound-oidc-auth-service.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-enterprise/identity-outbound-oidc-auth-service.git
         </developerConnection>
-        <connection>scm:git:https://github.com/wso2-incubator/identity-outbound-oidc-auth-service.git</connection>
+        <connection>scm:git:https://github.com/wso2-enterprise/identity-outbound-oidc-auth-service.git</connection>
         <tag>HEAD</tag>
     </scm>
 
