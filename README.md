@@ -68,7 +68,7 @@ java -Dlog4j.configurationFile=log4j2.properties -jar com.wso2.identity.asgardeo
 
 Once the server is running following log can be seen in the terminal.
 ```
-TID: [1] [2022-09-21 07:58:06,124] [] : iam-cloud-outbound-oidc-service :  INFO {org.wso2.identity.outbound.oidc.auth.service.OutboundOIDCServer} - Outbound OIDC Service started successfully. Listening on port 5002
+TID: [1] [2022-09-21 07:58:06,124] [] : iam-cloud-outbound-oidc-service :  INFO {OutboundOIDCServer} - Outbound OIDC Service started successfully. Listening on port 5002
 ```
 
 ### Setting up Identity Server.
