@@ -45,9 +45,6 @@ resources:
 steps:
   # Checkout the self repository as this pipeline definition contains multiple checkout steps.
   - checkout: self
-    # Call the template to install the prerequisites required for this build.
-    #  - template: pipelines-templates/azure-ci-prerequisite/subscription-service-prerequisite-install.yaml@asgardeo-deployment-pipeline
-
   # Set sleep time to wait till artifacts are available in the Github release.
   - script: |
       sleep 180
@@ -72,7 +69,7 @@ steps:
       sourceFolder: $(Agent.TempDirectory)/artefacts
       contents: |
         org.wso2.identity.outbound.oidc.auth.service.jar
-      targetFolder: $(Agent.BuildDirectory)/s/components/org.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu
+      targetFolder: $(Agent.BuildDirectory)/s/identity-outbound-oidc-auth-service/components/com.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu
       cleanTargetFolder: false
 
     # Build docker image for the released artifact.
@@ -82,8 +79,8 @@ steps:
       command: build
       containerRegistry: $(ACR_CONNECTION)
       repository: $(OUTBOUND_OIDC_AUTH_SERVICE_REPOSITORY)
-      buildContext: $(Agent.BuildDirectory)/s/components/org.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu
-      Dockerfile: $(Agent.BuildDirectory)/s/components/org.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu/Dockerfile
+      buildContext: $(Agent.BuildDirectory)/s/identity-outbound-oidc-auth-service/components/com.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu
+      Dockerfile: $(Agent.BuildDirectory)/s/identity-outbound-oidc-auth-service/components/com.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu/Dockerfile
       tags: |
         $(GITHUB_RELEASE_TAG)
         latest
@@ -124,9 +121,9 @@ steps:
       git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline config --global user.email "iam-cloud@wso2.com"
       git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline config --global user.name "wso2-iam-cloud-bot"
     displayName: Set Github profile
-    # Update docker image SHA and version in dev-001 branch.
+    # Update docker image SHA and version in v2-rnd-001 branch.
   - script: |
-      # Checkout to the dev branch.
+      # Checkout to the v2-rnd-001 branch.
       git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline checkout v2-rnd-001
       git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline pull origin v2-rnd-001
 
@@ -140,48 +137,12 @@ steps:
       OLD_OUTBOUND_OIDC_AUTH_SERVICE_VERSION=$(echo $OLD_OUTBOUND_OIDC_AUTH_SERVICE_VERSION | cut -c37-)
       sed -i 's|'"${OLD_OUTBOUND_OIDC_AUTH_SERVICE_VERSION}"'|'"$(GITHUB_RELEASE_TAG)"'|' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/outbound-oidc-auth-service/v2-rnd-setup-variables.yaml
 
-      # Push changes to dev.
+      # Push changes to v2-rnd-001.
       git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline add $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/outbound-oidc-auth-service/v2-rnd-setup-variables.yaml
       git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline commit -m "[V2-Rnd] Update Outbound OIDC Auth Service info for the latest build - $(GITHUB_RELEASE_TAG)"
       git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline push origin v2-rnd-001
       echo "[V2-Rnd] Build information update is completed!."
-    condition: and(succeeded(), not(contains(variables.GITHUB_RELEASE_TAG, 'hotfix')))
     displayName: Update v2-rnd-setup-variable.yaml to trigger rnd deployment
-    # Open a PR for Hotfix delivery process.
-    #  - script: |
-    #      # Create/Reset the asgardeo-hot-fix branch from the stage-001 branch.
-    #      NEW_BRANCH_NAME=asgardeo-hot-fix-$(GITHUB_RELEASE_TAG)
-    #      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline checkout stage-001
-    #      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline pull stage-001
-    #      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline checkout -b $NEW_BRANCH_NAME
-    #
-    #      # Update IMAGE_SHA.
-    #      OLD_IMAGE_SHA=$(grep 'IMAGE_SHA' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/subscription-service/stage-setup-variables.yaml)
-    #      OLD_IMAGE_SHA=$(echo $OLD_IMAGE_SHA | cut -c12-)
-    #      sed -i 's|'"${OLD_IMAGE_SHA}"'|'"$(IMAGE_SHA)"'|' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/subscription-service/stage-setup-variables.yaml
-    #
-    #      # Update subscription-service version.
-    #      OLD_SUBSCRIPTION_SERVICE_VERSION=$(grep 'SUBSCRIPTION_SERVICE_VERSION' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/subscription-service/stage-setup-variables.yaml)
-    #      OLD_SUBSCRIPTION_SERVICE_VERSION=$(echo $OLD_SUBSCRIPTION_SERVICE_VERSION | cut -c31-)
-    #      sed -i 's|'"${OLD_SUBSCRIPTION_SERVICE_VERSION}"'|'"$(Build.SourceBranchName)"'|' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/subscription-service/stage-setup-variables.yaml
-    #
-    #      # Push changes to the $NEW_BRANCH_NAME branch.
-    #      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline add $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/subscription-service/stage-setup-variables.yaml
-    #      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline commit -m "[Stage-001][Hotfix] Update Subscription Service info for the Hotfix build - $(GITHUB_RELEASE_TAG)"
-    #      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline push origin $NEW_BRANCH_NAME
-    #
-    #      # Navigate to repo directory and login to GitHub CLI with PAT.
-    #      cd $(Agent.BuildDirectory)/asgardeo-deployment-pipeline
-    #      echo $(GIT-BOT-PAT) | gh auth login --with-token
-    #
-    #      # Create a new PR for the hot-fix.
-    #      gh pr create --title "[Stage-001][Hotfix] Update Subscription Service info for the Hotfix build - $(GITHUB_RELEASE_TAG)" --body "Update Subscription Service info for the Hotfix build - $(GITHUB_RELEASE_TAG)" --base stage-001
-    #
-    #      # Navigate back to the previous directory.
-    #      cd $(Build.SourcesDirectory)
-    #      echo "[Stage-001] Build information update is completed!."
-    #    condition: and(succeeded(), contains(variables.GITHUB_RELEASE_TAG, 'hotfix'))
-    #    displayName: Update stage-setup-variable.yaml to trigger stage deployment for a Hotfix
     #Call the template to send alert on the pipeline execution status.
   - template: pipelines-templates/alerts/send-alert-ci.yaml@asgardeo-deployment-pipeline
     parameters:
@@ -190,10 +151,3 @@ steps:
       GOOGLE_CHAT_SPACE: $(GOOGLE-CHAT-SPACE)
       GOOGLE_CHAT_KEY: $(GOOGLE-CHAT-KEY)
       GOOGLE_CHAT_TOKEN: $(GOOGLE-CHAT-TOKEN)
-#
-#  - template: pipelines-templates/git-tooling/tooling-commit-ci.yaml@asgardeo-deployment-pipeline
-#    parameters:
-#      PIPELINE_NAME: 'subscription-service-build'
-#      BUILD_VERSION: $(GITHUB_RELEASE_TAG)
-#      CI_BUILD_STATUS: $(Agent.JobStatus)
-#      GIT_BOT_PAT: $(GIT-BOT-PAT)
