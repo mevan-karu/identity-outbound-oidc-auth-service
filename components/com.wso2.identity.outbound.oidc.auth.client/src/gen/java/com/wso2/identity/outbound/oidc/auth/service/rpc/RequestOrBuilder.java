@@ -13,7 +13,7 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 public interface RequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:org.wso2.identity.outbound.oidc.auth.service.rpc.Request)
+    // @@protoc_insertion_point(interface_extends:com.wso2.identity.outbound.oidc.auth.service.rpc.Request)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -71,26 +71,26 @@ public interface RequestOrBuilder extends
       java.lang.String key);
 
   /**
-   * <code>repeated .org.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
+   * <code>repeated .com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
    */
-  java.util.List<Request.RequestParam>
+  java.util.List<com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam> 
       getRequestParamsList();
   /**
-   * <code>repeated .org.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
+   * <code>repeated .com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
    */
-  Request.RequestParam getRequestParams(int index);
+  com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam getRequestParams(int index);
   /**
-   * <code>repeated .org.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
+   * <code>repeated .com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
    */
   int getRequestParamsCount();
   /**
-   * <code>repeated .org.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
+   * <code>repeated .com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
    */
-  java.util.List<? extends Request.RequestParamOrBuilder>
+  java.util.List<? extends com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParamOrBuilder> 
       getRequestParamsOrBuilderList();
   /**
-   * <code>repeated .org.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
+   * <code>repeated .com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParam requestParams = 4;</code>
    */
-  Request.RequestParamOrBuilder getRequestParamsOrBuilder(
+  com.wso2.identity.outbound.oidc.auth.service.rpc.Request.RequestParamOrBuilder getRequestParamsOrBuilder(
       int index);
 }

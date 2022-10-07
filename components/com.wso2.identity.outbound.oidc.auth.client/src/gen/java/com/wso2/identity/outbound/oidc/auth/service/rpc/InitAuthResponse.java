@@ -13,11 +13,11 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 /**
- * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse}
+ * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse}
  */
 public  final class InitAuthResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
+    // @@protoc_insertion_point(message_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
     InitAuthResponseOrBuilder {
   // Use InitAuthResponse.newBuilder() to construct.
   private InitAuthResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -77,14 +77,14 @@ public  final class InitAuthResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            InitAuthResponse.class, InitAuthResponse.Builder.class);
+            com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.class, com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.Builder.class);
   }
 
   public static final int ISREDIRECT_FIELD_NUMBER = 1;
@@ -172,10 +172,10 @@ public  final class InitAuthResponse extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof InitAuthResponse)) {
+    if (!(obj instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)) {
       return super.equals(obj);
     }
-    InitAuthResponse other = (InitAuthResponse) obj;
+    com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse other = (com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse) obj;
 
     boolean result = true;
     result = result && (getIsRedirect()
@@ -202,69 +202,69 @@ public  final class InitAuthResponse extends
     return hash;
   }
 
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static InitAuthResponse parseFrom(byte[] data)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static InitAuthResponse parseFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static InitAuthResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static InitAuthResponse parseDelimitedFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static InitAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -276,7 +276,7 @@ public  final class InitAuthResponse extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(InitAuthResponse prototype) {
+  public static Builder newBuilder(com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -291,25 +291,25 @@ public  final class InitAuthResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse}
+   * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
-          InitAuthResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
+      com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              InitAuthResponse.class, InitAuthResponse.Builder.class);
+              com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.class, com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.Builder.class);
     }
 
-    // Construct using org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.newBuilder()
+    // Construct using com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -335,23 +335,23 @@ public  final class InitAuthResponse extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
     }
 
-    public InitAuthResponse getDefaultInstanceForType() {
-      return InitAuthResponse.getDefaultInstance();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse getDefaultInstanceForType() {
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.getDefaultInstance();
     }
 
-    public InitAuthResponse build() {
-      InitAuthResponse result = buildPartial();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse build() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public InitAuthResponse buildPartial() {
-      InitAuthResponse result = new InitAuthResponse(this);
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse buildPartial() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse result = new com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse(this);
       result.isRedirect_ = isRedirect_;
       result.redirectUrl_ = redirectUrl_;
       onBuilt();
@@ -385,16 +385,16 @@ public  final class InitAuthResponse extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof InitAuthResponse) {
-        return mergeFrom((InitAuthResponse)other);
+      if (other instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse) {
+        return mergeFrom((com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(InitAuthResponse other) {
-      if (other == InitAuthResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse other) {
+      if (other == com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.getDefaultInstance()) return this;
       if (other.getIsRedirect() != false) {
         setIsRedirect(other.getIsRedirect());
       }
@@ -414,11 +414,11 @@ public  final class InitAuthResponse extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      InitAuthResponse parsedMessage = null;
+      com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (InitAuthResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -533,16 +533,16 @@ public  final class InitAuthResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
+    // @@protoc_insertion_point(builder_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
-  private static final InitAuthResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse)
+  private static final com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new InitAuthResponse();
+    DEFAULT_INSTANCE = new com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse();
   }
 
-  public static InitAuthResponse getDefaultInstance() {
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -565,7 +565,7 @@ public  final class InitAuthResponse extends
     return PARSER;
   }
 
-  public InitAuthResponse getDefaultInstanceForType() {
+  public com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

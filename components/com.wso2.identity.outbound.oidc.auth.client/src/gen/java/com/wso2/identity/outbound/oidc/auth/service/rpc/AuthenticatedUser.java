@@ -13,11 +13,11 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 /**
- * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser}
+ * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser}
  */
 public  final class AuthenticatedUser extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
+    // @@protoc_insertion_point(message_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
     AuthenticatedUserOrBuilder {
   // Use AuthenticatedUser.newBuilder() to construct.
   private AuthenticatedUser(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -83,7 +83,7 @@ public  final class AuthenticatedUser extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
@@ -99,9 +99,9 @@ public  final class AuthenticatedUser extends
   }
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            AuthenticatedUser.class, AuthenticatedUser.Builder.class);
+            com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.class, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder.class);
   }
 
   private int bitField0_;
@@ -120,7 +120,7 @@ public  final class AuthenticatedUser extends
         java.lang.String, java.lang.String> defaultEntry =
             com.google.protobuf.MapEntry
             .<java.lang.String, java.lang.String>newDefaultInstance(
-                OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor,
+                com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.STRING,
@@ -242,10 +242,10 @@ public  final class AuthenticatedUser extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof AuthenticatedUser)) {
+    if (!(obj instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)) {
       return super.equals(obj);
     }
-    AuthenticatedUser other = (AuthenticatedUser) obj;
+    com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser other = (com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser) obj;
 
     boolean result = true;
     result = result && (getIsFederatedUser()
@@ -274,69 +274,69 @@ public  final class AuthenticatedUser extends
     return hash;
   }
 
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static AuthenticatedUser parseFrom(byte[] data)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static AuthenticatedUser parseFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static AuthenticatedUser parseDelimitedFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static AuthenticatedUser parseDelimitedFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static AuthenticatedUser parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -348,7 +348,7 @@ public  final class AuthenticatedUser extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(AuthenticatedUser prototype) {
+  public static Builder newBuilder(com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -363,15 +363,15 @@ public  final class AuthenticatedUser extends
     return builder;
   }
   /**
-   * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser}
+   * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
-          AuthenticatedUserOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
+      com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUserOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -398,12 +398,12 @@ public  final class AuthenticatedUser extends
     }
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              AuthenticatedUser.class, AuthenticatedUser.Builder.class);
+              com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.class, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder.class);
     }
 
-    // Construct using org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.newBuilder()
+    // Construct using com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -428,23 +428,23 @@ public  final class AuthenticatedUser extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
     }
 
-    public AuthenticatedUser getDefaultInstanceForType() {
-      return AuthenticatedUser.getDefaultInstance();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser getDefaultInstanceForType() {
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.getDefaultInstance();
     }
 
-    public AuthenticatedUser build() {
-      AuthenticatedUser result = buildPartial();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser build() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public AuthenticatedUser buildPartial() {
-      AuthenticatedUser result = new AuthenticatedUser(this);
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser buildPartial() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser result = new com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.isFederatedUser_ = isFederatedUser_;
@@ -482,16 +482,16 @@ public  final class AuthenticatedUser extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof AuthenticatedUser) {
-        return mergeFrom((AuthenticatedUser)other);
+      if (other instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser) {
+        return mergeFrom((com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(AuthenticatedUser other) {
-      if (other == AuthenticatedUser.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser other) {
+      if (other == com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.getDefaultInstance()) return this;
       if (other.getIsFederatedUser() != false) {
         setIsFederatedUser(other.getIsFederatedUser());
       }
@@ -509,11 +509,11 @@ public  final class AuthenticatedUser extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      AuthenticatedUser parsedMessage = null;
+      com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (AuthenticatedUser) e.getUnfinishedMessage();
+        parsedMessage = (com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -683,16 +683,16 @@ public  final class AuthenticatedUser extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
+    // @@protoc_insertion_point(builder_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
   }
 
-  // @@protoc_insertion_point(class_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
-  private static final AuthenticatedUser DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser)
+  private static final com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new AuthenticatedUser();
+    DEFAULT_INSTANCE = new com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser();
   }
 
-  public static AuthenticatedUser getDefaultInstance() {
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -715,7 +715,7 @@ public  final class AuthenticatedUser extends
     return PARSER;
   }
 
-  public AuthenticatedUser getDefaultInstanceForType() {
+  public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -13,11 +13,11 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 /**
- * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse}
+ * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse}
  */
 public  final class ProcessAuthResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
+    // @@protoc_insertion_point(message_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
     ProcessAuthResponseOrBuilder {
   // Use ProcessAuthResponse.newBuilder() to construct.
   private ProcessAuthResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -59,11 +59,11 @@ public  final class ProcessAuthResponse extends
             break;
           }
           case 18: {
-            AuthenticatedUser.Builder subBuilder = null;
+            com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder subBuilder = null;
             if (authenticatedUser_ != null) {
               subBuilder = authenticatedUser_.toBuilder();
             }
-            authenticatedUser_ = input.readMessage(AuthenticatedUser.parser(), extensionRegistry);
+            authenticatedUser_ = input.readMessage(com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(authenticatedUser_);
               authenticatedUser_ = subBuilder.buildPartial();
@@ -97,7 +97,7 @@ public  final class ProcessAuthResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
@@ -113,9 +113,9 @@ public  final class ProcessAuthResponse extends
   }
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ProcessAuthResponse.class, ProcessAuthResponse.Builder.class);
+            com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.class, com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.Builder.class);
   }
 
   private int bitField0_;
@@ -154,23 +154,23 @@ public  final class ProcessAuthResponse extends
   }
 
   public static final int AUTHENTICATEDUSER_FIELD_NUMBER = 2;
-  private AuthenticatedUser authenticatedUser_;
+  private com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser_;
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
    */
   public boolean hasAuthenticatedUser() {
     return authenticatedUser_ != null;
   }
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
    */
-  public AuthenticatedUser getAuthenticatedUser() {
-    return authenticatedUser_ == null ? AuthenticatedUser.getDefaultInstance() : authenticatedUser_;
+  public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser getAuthenticatedUser() {
+    return authenticatedUser_ == null ? com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.getDefaultInstance() : authenticatedUser_;
   }
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
    */
-  public AuthenticatedUserOrBuilder getAuthenticatedUserOrBuilder() {
+  public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUserOrBuilder getAuthenticatedUserOrBuilder() {
     return getAuthenticatedUser();
   }
 
@@ -180,7 +180,7 @@ public  final class ProcessAuthResponse extends
         java.lang.String, java.lang.String> defaultEntry =
             com.google.protobuf.MapEntry
             .<java.lang.String, java.lang.String>newDefaultInstance(
-                OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor,
+                com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.STRING,
@@ -308,10 +308,10 @@ public  final class ProcessAuthResponse extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ProcessAuthResponse)) {
+    if (!(obj instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)) {
       return super.equals(obj);
     }
-    ProcessAuthResponse other = (ProcessAuthResponse) obj;
+    com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse other = (com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse) obj;
 
     boolean result = true;
     result = result && getAuthenticationStatus()
@@ -348,69 +348,69 @@ public  final class ProcessAuthResponse extends
     return hash;
   }
 
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProcessAuthResponse parseFrom(byte[] data)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProcessAuthResponse parseFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ProcessAuthResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ProcessAuthResponse parseDelimitedFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ProcessAuthResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -422,7 +422,7 @@ public  final class ProcessAuthResponse extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ProcessAuthResponse prototype) {
+  public static Builder newBuilder(com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -437,15 +437,15 @@ public  final class ProcessAuthResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse}
+   * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
-          ProcessAuthResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
+      com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -472,12 +472,12 @@ public  final class ProcessAuthResponse extends
     }
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProcessAuthResponse.class, ProcessAuthResponse.Builder.class);
+              com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.class, com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.Builder.class);
     }
 
-    // Construct using org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.newBuilder()
+    // Construct using com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -508,23 +508,23 @@ public  final class ProcessAuthResponse extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
     }
 
-    public ProcessAuthResponse getDefaultInstanceForType() {
-      return ProcessAuthResponse.getDefaultInstance();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse getDefaultInstanceForType() {
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.getDefaultInstance();
     }
 
-    public ProcessAuthResponse build() {
-      ProcessAuthResponse result = buildPartial();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse build() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public ProcessAuthResponse buildPartial() {
-      ProcessAuthResponse result = new ProcessAuthResponse(this);
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse buildPartial() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse result = new com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.authenticationStatus_ = authenticationStatus_;
@@ -567,16 +567,16 @@ public  final class ProcessAuthResponse extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ProcessAuthResponse) {
-        return mergeFrom((ProcessAuthResponse)other);
+      if (other instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse) {
+        return mergeFrom((com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ProcessAuthResponse other) {
-      if (other == ProcessAuthResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse other) {
+      if (other == com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.getDefaultInstance()) return this;
       if (!other.getAuthenticationStatus().isEmpty()) {
         authenticationStatus_ = other.authenticationStatus_;
         onChanged();
@@ -598,11 +598,11 @@ public  final class ProcessAuthResponse extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ProcessAuthResponse parsedMessage = null;
+      com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ProcessAuthResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -682,29 +682,29 @@ public  final class ProcessAuthResponse extends
       return this;
     }
 
-    private AuthenticatedUser authenticatedUser_ = null;
+    private com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-            AuthenticatedUser, AuthenticatedUser.Builder, AuthenticatedUserOrBuilder> authenticatedUserBuilder_;
+        com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUserOrBuilder> authenticatedUserBuilder_;
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
     public boolean hasAuthenticatedUser() {
       return authenticatedUserBuilder_ != null || authenticatedUser_ != null;
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
-    public AuthenticatedUser getAuthenticatedUser() {
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser getAuthenticatedUser() {
       if (authenticatedUserBuilder_ == null) {
-        return authenticatedUser_ == null ? AuthenticatedUser.getDefaultInstance() : authenticatedUser_;
+        return authenticatedUser_ == null ? com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.getDefaultInstance() : authenticatedUser_;
       } else {
         return authenticatedUserBuilder_.getMessage();
       }
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
-    public Builder setAuthenticatedUser(AuthenticatedUser value) {
+    public Builder setAuthenticatedUser(com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser value) {
       if (authenticatedUserBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -718,10 +718,10 @@ public  final class ProcessAuthResponse extends
       return this;
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
     public Builder setAuthenticatedUser(
-        AuthenticatedUser.Builder builderForValue) {
+        com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder builderForValue) {
       if (authenticatedUserBuilder_ == null) {
         authenticatedUser_ = builderForValue.build();
         onChanged();
@@ -732,13 +732,13 @@ public  final class ProcessAuthResponse extends
       return this;
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
-    public Builder mergeAuthenticatedUser(AuthenticatedUser value) {
+    public Builder mergeAuthenticatedUser(com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser value) {
       if (authenticatedUserBuilder_ == null) {
         if (authenticatedUser_ != null) {
           authenticatedUser_ =
-            AuthenticatedUser.newBuilder(authenticatedUser_).mergeFrom(value).buildPartial();
+            com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.newBuilder(authenticatedUser_).mergeFrom(value).buildPartial();
         } else {
           authenticatedUser_ = value;
         }
@@ -750,7 +750,7 @@ public  final class ProcessAuthResponse extends
       return this;
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
     public Builder clearAuthenticatedUser() {
       if (authenticatedUserBuilder_ == null) {
@@ -764,33 +764,33 @@ public  final class ProcessAuthResponse extends
       return this;
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
-    public AuthenticatedUser.Builder getAuthenticatedUserBuilder() {
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder getAuthenticatedUserBuilder() {
       
       onChanged();
       return getAuthenticatedUserFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
-    public AuthenticatedUserOrBuilder getAuthenticatedUserOrBuilder() {
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUserOrBuilder getAuthenticatedUserOrBuilder() {
       if (authenticatedUserBuilder_ != null) {
         return authenticatedUserBuilder_.getMessageOrBuilder();
       } else {
         return authenticatedUser_ == null ?
-            AuthenticatedUser.getDefaultInstance() : authenticatedUser_;
+            com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.getDefaultInstance() : authenticatedUser_;
       }
     }
     /**
-     * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+     * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-            AuthenticatedUser, AuthenticatedUser.Builder, AuthenticatedUserOrBuilder>
+        com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUserOrBuilder> 
         getAuthenticatedUserFieldBuilder() {
       if (authenticatedUserBuilder_ == null) {
         authenticatedUserBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                AuthenticatedUser, AuthenticatedUser.Builder, AuthenticatedUserOrBuilder>(
+            com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser.Builder, com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUserOrBuilder>(
                 getAuthenticatedUser(),
                 getParentForChildren(),
                 isClean());
@@ -932,16 +932,16 @@ public  final class ProcessAuthResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
+    // @@protoc_insertion_point(builder_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
-  private static final ProcessAuthResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
+  private static final com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ProcessAuthResponse();
+    DEFAULT_INSTANCE = new com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse();
   }
 
-  public static ProcessAuthResponse getDefaultInstance() {
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -964,7 +964,7 @@ public  final class ProcessAuthResponse extends
     return PARSER;
   }
 
-  public ProcessAuthResponse getDefaultInstanceForType() {
+  public com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

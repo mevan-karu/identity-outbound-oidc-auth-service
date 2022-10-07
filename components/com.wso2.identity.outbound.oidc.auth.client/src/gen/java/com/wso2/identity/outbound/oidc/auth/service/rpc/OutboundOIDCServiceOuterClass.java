@@ -24,80 +24,80 @@ public final class OutboundOIDCServiceOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor;
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_fieldAccessorTable;
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -107,27 +107,27 @@ public final class OutboundOIDCServiceOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\031OutboundOIDCService.proto\0220org.wso2.id" +
+      "\n\031OutboundOIDCService.proto\0220com.wso2.id" +
       "entity.outbound.oidc.auth.service.rpc\"\321\002" +
       "\n\007Request\022\022\n\nrequestURL\030\001 \001(\t\022\023\n\013querySt" +
-      "ring\030\002 \001(\t\022W\n\007headers\030\005 \003(\0132F.org.wso2.i" +
+      "ring\030\002 \001(\t\022W\n\007headers\030\005 \003(\0132F.com.wso2.i" +
       "dentity.outbound.oidc.auth.service.rpc.R" +
       "equest.HeadersEntry\022]\n\rrequestParams\030\004 \003" +
-      "(\0132F.org.wso2.identity.outbound.oidc.aut" +
+      "(\0132F.com.wso2.identity.outbound.oidc.aut" +
       "h.service.rpc.Request.RequestParam\0325\n\014Re" +
       "questParam\022\021\n\tparamName\030\001 \001(\t\022\022\n\nparamVa" +
       "lue\030\002 \003(\t\032.\n\014HeadersEntry\022\013\n\003key\030\001 \001(\t\022\r",
       "\n\005value\030\002 \001(\t:\0028\001\"&\n\021CanHandleResponse\022\021" +
       "\n\tcanHandle\030\001 \001(\010\"\352\004\n\025AuthenticationCont" +
       "ext\022\031\n\021contextIdentifier\030\001 \001(\t\022\205\001\n\027authe" +
-      "nticatorProperties\030\002 \003(\0132d.org.wso2.iden" +
+      "nticatorProperties\030\002 \003(\0132d.com.wso2.iden" +
       "tity.outbound.oidc.auth.service.rpc.Auth" +
       "enticationContext.AuthenticatorPropertie" +
-      "sEntry\022}\n\023authenticatorParams\030\003 \003(\0132`.or" +
-      "g.wso2.identity.outbound.oidc.auth.servi" +
+      "sEntry\022}\n\023authenticatorParams\030\003 \003(\0132`.co" +
+      "m.wso2.identity.outbound.oidc.auth.servi" +
       "ce.rpc.AuthenticationContext.Authenticat" +
       "orParamsEntry\022y\n\021contextProperties\030\004 \003(\013",
-      "2^.org.wso2.identity.outbound.oidc.auth." +
+      "2^.com.wso2.identity.outbound.oidc.auth." +
       "service.rpc.AuthenticationContext.Contex" +
       "tPropertiesEntry\032>\n\034AuthenticatorPropert" +
       "iesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
@@ -135,42 +135,42 @@ public final class OutboundOIDCServiceOuterClass {
       "\t\022\r\n\005value\030\002 \001(\t:\0028\001\0328\n\026ContextPropertie" +
       "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\305" +
       "\001\n\017InitAuthRequest\022f\n\025authenticationCont" +
-      "ext\030\001 \001(\0132G.org.wso2.identity.outbound.o" +
+      "ext\030\001 \001(\0132G.com.wso2.identity.outbound.o" +
       "idc.auth.service.rpc.AuthenticationConte",
-      "xt\022J\n\007request\030\002 \001(\01329.org.wso2.identity." +
+      "xt\022J\n\007request\030\002 \001(\01329.com.wso2.identity." +
       "outbound.oidc.auth.service.rpc.Request\";" +
       "\n\020InitAuthResponse\022\022\n\nisRedirect\030\001 \001(\010\022\023" +
       "\n\013redirectUrl\030\002 \001(\t\"\310\001\n\022ProcessAuthReque" +
-      "st\022f\n\025authenticationContext\030\001 \001(\0132G.org." +
+      "st\022f\n\025authenticationContext\030\001 \001(\0132G.com." +
       "wso2.identity.outbound.oidc.auth.service" +
       ".rpc.AuthenticationContext\022J\n\007request\030\002 " +
-      "\001(\01329.org.wso2.identity.outbound.oidc.au" +
+      "\001(\01329.com.wso2.identity.outbound.oidc.au" +
       "th.service.rpc.Request\"\311\002\n\023ProcessAuthRe" +
       "sponse\022\034\n\024authenticationStatus\030\001 \001(\t\022^\n\021",
-      "authenticatedUser\030\002 \001(\0132C.org.wso2.ident" +
+      "authenticatedUser\030\002 \001(\0132C.com.wso2.ident" +
       "ity.outbound.oidc.auth.service.rpc.Authe" +
       "nticatedUser\022y\n\022authenticationData\030\003 \003(\013" +
-      "2].org.wso2.identity.outbound.oidc.auth." +
+      "2].com.wso2.identity.outbound.oidc.auth." +
       "service.rpc.ProcessAuthResponse.Authenti" +
       "cationDataEntry\0329\n\027AuthenticationDataEnt" +
       "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\324\001\n\021A" +
       "uthenticatedUser\022\027\n\017isFederatedUser\030\001 \001(" +
-      "\010\022o\n\016userAttributes\030\002 \003(\0132W.org.wso2.ide" +
+      "\010\022o\n\016userAttributes\030\002 \003(\0132W.com.wso2.ide" +
       "ntity.outbound.oidc.auth.service.rpc.Aut",
       "henticatedUser.UserAttributesEntry\0325\n\023Us" +
       "erAttributesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
       "\002 \001(\t:\0028\0012\364\003\n\023OutboundOIDCService\022\213\001\n\tca" +
-      "nHandle\0229.org.wso2.identity.outbound.oid" +
-      "c.auth.service.rpc.Request\032C.org.wso2.id" +
+      "nHandle\0229.com.wso2.identity.outbound.oid" +
+      "c.auth.service.rpc.Request\032C.com.wso2.id" +
       "entity.outbound.oidc.auth.service.rpc.Ca" +
       "nHandleResponse\022\237\001\n\026initiateAuthenticati" +
-      "on\022A.org.wso2.identity.outbound.oidc.aut" +
-      "h.service.rpc.InitAuthRequest\032B.org.wso2" +
+      "on\022A.com.wso2.identity.outbound.oidc.aut" +
+      "h.service.rpc.InitAuthRequest\032B.com.wso2" +
       ".identity.outbound.oidc.auth.service.rpc",
       ".InitAuthResponse\022\254\001\n\035processAuthenticat" +
-      "ionResponse\022D.org.wso2.identity.outbound" +
+      "ionResponse\022D.com.wso2.identity.outbound" +
       ".oidc.auth.service.rpc.ProcessAuthReques" +
-      "t\032E.org.wso2.identity.outbound.oidc.auth" +
+      "t\032E.com.wso2.identity.outbound.oidc.auth" +
       ".service.rpc.ProcessAuthResponseB\002P\001b\006pr" +
       "oto3"
     };
@@ -186,95 +186,95 @@ public final class OutboundOIDCServiceOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor,
         new java.lang.String[] { "RequestURL", "QueryString", "Headers", "RequestParams", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_descriptor =
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor.getNestedTypes().get(0);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_descriptor =
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor.getNestedTypes().get(0);
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_RequestParam_descriptor,
         new java.lang.String[] { "ParamName", "ParamValue", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_descriptor =
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor.getNestedTypes().get(1);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_descriptor =
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_descriptor.getNestedTypes().get(1);
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_Request_HeadersEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor,
         new java.lang.String[] { "CanHandle", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor,
         new java.lang.String[] { "ContextIdentifier", "AuthenticatorProperties", "AuthenticatorParams", "ContextProperties", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_descriptor =
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor.getNestedTypes().get(0);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_descriptor =
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor.getNestedTypes().get(0);
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorPropertiesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_descriptor =
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor.getNestedTypes().get(1);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_descriptor =
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor.getNestedTypes().get(1);
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_AuthenticatorParamsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_descriptor =
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor.getNestedTypes().get(2);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_descriptor =
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_descriptor.getNestedTypes().get(2);
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticationContext_ContextPropertiesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthRequest_descriptor,
         new java.lang.String[] { "AuthenticationContext", "Request", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_InitAuthResponse_descriptor,
         new java.lang.String[] { "IsRedirect", "RedirectUrl", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthRequest_descriptor,
         new java.lang.String[] { "AuthenticationContext", "Request", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor,
         new java.lang.String[] { "AuthenticationStatus", "AuthenticatedUser", "AuthenticationData", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor =
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor.getNestedTypes().get(0);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor =
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_descriptor.getNestedTypes().get(0);
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_ProcessAuthResponse_AuthenticationDataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor =
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor,
         new java.lang.String[] { "IsFederatedUser", "UserAttributes", });
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor =
-      internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor.getNestedTypes().get(0);
-    internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_fieldAccessorTable = new
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor =
+      internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_descriptor.getNestedTypes().get(0);
+    internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor,
+        internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_AuthenticatedUser_UserAttributesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
   }
 

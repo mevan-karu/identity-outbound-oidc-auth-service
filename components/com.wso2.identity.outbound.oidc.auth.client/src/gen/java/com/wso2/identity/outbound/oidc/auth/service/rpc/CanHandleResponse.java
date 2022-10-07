@@ -13,11 +13,11 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 /**
- * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse}
+ * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse}
  */
 public  final class CanHandleResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
+    // @@protoc_insertion_point(message_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
     CanHandleResponseOrBuilder {
   // Use CanHandleResponse.newBuilder() to construct.
   private CanHandleResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -70,14 +70,14 @@ public  final class CanHandleResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable
+    return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            CanHandleResponse.class, CanHandleResponse.Builder.class);
+            com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.class, com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.Builder.class);
   }
 
   public static final int CANHANDLE_FIELD_NUMBER = 1;
@@ -125,10 +125,10 @@ public  final class CanHandleResponse extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof CanHandleResponse)) {
+    if (!(obj instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)) {
       return super.equals(obj);
     }
-    CanHandleResponse other = (CanHandleResponse) obj;
+    com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse other = (com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse) obj;
 
     boolean result = true;
     result = result && (getCanHandle()
@@ -151,69 +151,69 @@ public  final class CanHandleResponse extends
     return hash;
   }
 
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static CanHandleResponse parseFrom(byte[] data)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static CanHandleResponse parseFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static CanHandleResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static CanHandleResponse parseDelimitedFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static CanHandleResponse parseFrom(
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -225,7 +225,7 @@ public  final class CanHandleResponse extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(CanHandleResponse prototype) {
+  public static Builder newBuilder(com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -240,25 +240,25 @@ public  final class CanHandleResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse}
+   * Protobuf type {@code com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
-          CanHandleResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
+      com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              CanHandleResponse.class, CanHandleResponse.Builder.class);
+              com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.class, com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.Builder.class);
     }
 
-    // Construct using org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.newBuilder()
+    // Construct using com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -282,23 +282,23 @@ public  final class CanHandleResponse extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return OutboundOIDCServiceOuterClass.internal_static_org_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.internal_static_com_wso2_identity_outbound_oidc_auth_service_rpc_CanHandleResponse_descriptor;
     }
 
-    public CanHandleResponse getDefaultInstanceForType() {
-      return CanHandleResponse.getDefaultInstance();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse getDefaultInstanceForType() {
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.getDefaultInstance();
     }
 
-    public CanHandleResponse build() {
-      CanHandleResponse result = buildPartial();
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse build() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public CanHandleResponse buildPartial() {
-      CanHandleResponse result = new CanHandleResponse(this);
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse buildPartial() {
+      com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse result = new com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse(this);
       result.canHandle_ = canHandle_;
       onBuilt();
       return result;
@@ -331,16 +331,16 @@ public  final class CanHandleResponse extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof CanHandleResponse) {
-        return mergeFrom((CanHandleResponse)other);
+      if (other instanceof com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse) {
+        return mergeFrom((com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(CanHandleResponse other) {
-      if (other == CanHandleResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse other) {
+      if (other == com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.getDefaultInstance()) return this;
       if (other.getCanHandle() != false) {
         setCanHandle(other.getCanHandle());
       }
@@ -356,11 +356,11 @@ public  final class CanHandleResponse extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      CanHandleResponse parsedMessage = null;
+      com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (CanHandleResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -406,16 +406,16 @@ public  final class CanHandleResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
+    // @@protoc_insertion_point(builder_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:org.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
-  private static final CanHandleResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse)
+  private static final com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new CanHandleResponse();
+    DEFAULT_INSTANCE = new com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse();
   }
 
-  public static CanHandleResponse getDefaultInstance() {
+  public static com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -438,7 +438,7 @@ public  final class CanHandleResponse extends
     return PARSER;
   }
 
-  public CanHandleResponse getDefaultInstanceForType() {
+  public com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
