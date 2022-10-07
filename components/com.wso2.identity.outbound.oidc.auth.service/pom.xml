@@ -13,7 +13,7 @@
     <parent>
         <artifactId>identity-outbound-oidc-auth-service</artifactId>
         <groupId>com.wso2.identity.outbound.oidc.auth</groupId>
-        <version>0.0.14-SNAPSHOT</version>
+        <version>0.0.14</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
