@@ -60,7 +60,7 @@ steps:
 
     # Rename the downloaded artifact.
   - script: |
-      mv $(Agent.TempDirectory)/artefacts/org.wso2.identity.outbound.oidc.auth.service*.jar $(Agent.TempDirectory)/artefacts/org.wso2.identity.outbound.oidc.auth.service.jar
+      mv $(Agent.TempDirectory)/artefacts/com.wso2.identity.outbound.oidc.auth.service*.jar $(Agent.TempDirectory)/artefacts/com.wso2.identity.outbound.oidc.auth.service.jar
     displayName: Rename Asgardeo Outbound OIDC Auth Service JAR
     # Copy the downloaded artifact to the docker context.
   - task: CopyFiles@2
@@ -68,7 +68,7 @@ steps:
     inputs:
       sourceFolder: $(Agent.TempDirectory)/artefacts
       contents: |
-        org.wso2.identity.outbound.oidc.auth.service.jar
+        com.wso2.identity.outbound.oidc.auth.service.jar
       targetFolder: $(Agent.BuildDirectory)/s/identity-outbound-oidc-auth-service/components/com.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu
       cleanTargetFolder: false
 
