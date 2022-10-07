@@ -36,7 +36,7 @@ RUN \
     && useradd --system --create-home --home-dir ${USER_HOME} --no-log-init -g ${USER_GROUP_ID} -u ${USER_ID} ${USER} \
     && echo '[ ! -z "${TERM}" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc; echo "${MOTD}" > /etc/motd
 
-COPY --chown=wso2carbon:wso2 org.wso2.identity.outbound.oidc.auth.service.jar ${USER_HOME}/org.wso2.identity.outbound.oidc.auth.service.jar
+COPY --chown=wso2carbon:wso2 com.wso2.identity.outbound.oidc.auth.service.jar ${USER_HOME}/com.wso2.identity.outbound.oidc.auth.service.jar
 
 RUN GRPC_HEALTH_PROBE_VERSION=v0.4.4 && \
     curl -o /bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/${GRPC_HEALTH_PROBE_VERSION}/grpc_health_probe-linux-amd64 -L && \
@@ -50,4 +50,4 @@ WORKDIR ${USER_HOME}
 EXPOSE 8443
 
 # Initiate container and start Outbound OIDC service.
-ENTRYPOINT java $JVM_MEM_OPTS -Dlog4j.configurationFile=log4j2.properties -jar org.wso2.identity.outbound.oidc.auth.service.jar
+ENTRYPOINT java $JVM_MEM_OPTS -Dlog4j.configurationFile=log4j2.properties -jar com.wso2.identity.outbound.oidc.auth.service.jar
