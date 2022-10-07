@@ -1,0 +1,153 @@
+# -------------------------------------------------------------------------------------
+#
+# Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com). All Rights Reserved.
+#
+# This software is the property of WSO2 LLC. and its suppliers, if any.
+# Dissemination of any information or reproduction of any material contained
+# herein in any form is strictly forbidden, unless permitted by WSO2 expressly.
+# You may not alter or remove any copyright or other notice from copies of this content.
+#
+# --------------------------------------------------------------------------------------
+
+trigger:
+  batch: true
+  tags:
+    include:
+      - v*
+
+pr: none
+
+variables:
+  - name: GITHUB_CONNECTION
+    value: asgardeo-write-bot-github
+  - name: ARTEFACT_REPOSITORY
+    value: wso2-enterprise/identity-outbound-oidc-auth-service
+  - name: ACR_CONNECTION
+    value: asgardeo-acr
+  - name: OUTBOUND_OIDC_AUTH_SERVICE_REPOSITORY
+    value: asgardeo/outbound-oidc-auth-service
+  - name: CONTAINER_REGISTRY
+    value: acrasgardeomainshared001.azurecr.io
+  - name: GITHUB_RELEASE_TAG
+    value: $(Build.SourceBranchName)
+  - group: asgardeo-common-secrets
+
+pool: asgardeo-v2-rnd-scale-set-agents
+
+resources:
+  repositories:
+    - repository: asgardeo-deployment-pipeline
+      type: github
+      endpoint: asgardeo-write-bot-github
+      ref: refs/heads/main-001
+      name: wso2-enterprise/asgardeo-deployment-pipeline
+
+steps:
+  # Checkout the self repository as this pipeline definition contains multiple checkout steps.
+  - checkout: self
+  # Set sleep time to wait till artifacts are available in the Github release.
+  - script: |
+      sleep 180
+    displayName: Sleep until GitHub release artefacts are available
+  # Download the released artifact from the triggered Github release.
+  - task: DownloadGitHubRelease@0
+    inputs:
+      connection: $(GITHUB_CONNECTION)
+      userRepository: $(ARTEFACT_REPOSITORY)
+      version: $(GITHUB_RELEASE_TAG)
+      downloadPath: $(Agent.TempDirectory)/artefacts
+    displayName: Download GitHub release artefacts
+
+    # Rename the downloaded artifact.
+  - script: |
+      mv $(Agent.TempDirectory)/artefacts/org.wso2.identity.outbound.oidc.auth.service*.jar $(Agent.TempDirectory)/artefacts/org.wso2.identity.outbound.oidc.auth.service.jar
+    displayName: Rename Asgardeo Outbound OIDC Auth Service JAR
+    # Copy the downloaded artifact to the docker context.
+  - task: CopyFiles@2
+    displayName: Copy the downloaded artefact to the Docker context
+    inputs:
+      sourceFolder: $(Agent.TempDirectory)/artefacts
+      contents: |
+        org.wso2.identity.outbound.oidc.auth.service.jar
+      targetFolder: $(Agent.BuildDirectory)/s/identity-outbound-oidc-auth-service/components/com.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu
+      cleanTargetFolder: false
+
+    # Build docker image for the released artifact.
+  - task: Docker@2
+    displayName: Build Asgardeo Outbound OIDC Auth Service image
+    inputs:
+      command: build
+      containerRegistry: $(ACR_CONNECTION)
+      repository: $(OUTBOUND_OIDC_AUTH_SERVICE_REPOSITORY)
+      buildContext: $(Agent.BuildDirectory)/s/identity-outbound-oidc-auth-service/components/com.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu
+      Dockerfile: $(Agent.BuildDirectory)/s/identity-outbound-oidc-auth-service/components/com.wso2.identity.outbound.oidc.auth.service/dockerfiles/ubuntu/Dockerfile
+      tags: |
+        $(GITHUB_RELEASE_TAG)
+        latest
+    # Scan the built docker image with Trivy scanner.
+    #  - template: pipelines-templates/static-scan/trivy-docker-scan.yml@asgardeo-deployment-pipeline
+    #    parameters:
+    #      repository: $(ASGARDEO_SUBSCRIPTION_SERVICE_REPOSITORY)
+    #      tag: $(GITHUB_RELEASE_TAG)
+    #      registry: $(CONTAINER_REGISTRY)
+    #      trivyignorePath: $(Agent.BuildDirectory)/s/asgardeo-subscriptions/components/com.wso2.identity.asgardeo.subscriptions.service
+
+    # Push docker image to the ACR repository.
+  - task: Docker@2
+    displayName: Push Asgardeo Outbound OIDC Auth Service image
+    inputs:
+      containerRegistry: $(ACR_CONNECTION)
+      repository: $(OUTBOUND_OIDC_AUTH_SERVICE_REPOSITORY)
+      command: push
+      tags: |
+        $(GITHUB_RELEASE_TAG)
+        latest
+      addPipelineData: false
+
+    # Retrieve the built docker image sha and expose as an environment variable.
+  - script: |
+      IMAGE_SHA=$(docker inspect --format='{{index .RepoDigests 0}}' $(CONTAINER_REGISTRY)/$(OUTBOUND_OIDC_AUTH_SERVICE_REPOSITORY):$(GITHUB_RELEASE_TAG) | cut -d@ -f2)
+      echo IMAGE_SHA:$IMAGE_SHA
+      echo "##vso[task.setvariable variable=IMAGE_SHA]$IMAGE_SHA"
+    displayName: Obtain image SHA of Asgardeo Outbound OIDC Auth Service
+    # Take asgardeo-deployment-pipeline repo into '$(Agent.BuildDirectory)/asgardeo-deployment-pipeline'.
+  - checkout: asgardeo-deployment-pipeline
+    path: asgardeo-deployment-pipeline
+    persistCredentials: true
+    clean: true
+
+    # Set GitHub identity.
+  - script: |
+      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline config --global user.email "iam-cloud@wso2.com"
+      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline config --global user.name "wso2-iam-cloud-bot"
+    displayName: Set Github profile
+    # Update docker image SHA and version in v2-rnd-001 branch.
+  - script: |
+      # Checkout to the v2-rnd-001 branch.
+      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline checkout v2-rnd-001
+      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline pull origin v2-rnd-001
+
+      # Update IMAGE_SHA.
+      OLD_IMAGE_SHA=$(grep 'IMAGE_SHA' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/outbound-oidc-auth-service/v2-rnd-setup-variables.yaml)
+      OLD_IMAGE_SHA=$(echo $OLD_IMAGE_SHA | cut -c12-)
+      sed -i 's|'"${OLD_IMAGE_SHA}"'|'"$(IMAGE_SHA)"'|' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/outbound-oidc-auth-service/v2-rnd-setup-variables.yaml
+
+      # Update subscription-service version.
+      OLD_OUTBOUND_OIDC_AUTH_SERVICE_VERSION=$(grep 'OUTBOUND_OIDC_AUTH_SERVICE_VERSION' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/outbound-oidc-auth-service/v2-rnd-setup-variables.yaml)
+      OLD_OUTBOUND_OIDC_AUTH_SERVICE_VERSION=$(echo $OLD_OUTBOUND_OIDC_AUTH_SERVICE_VERSION | cut -c37-)
+      sed -i 's|'"${OLD_OUTBOUND_OIDC_AUTH_SERVICE_VERSION}"'|'"$(GITHUB_RELEASE_TAG)"'|' $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/outbound-oidc-auth-service/v2-rnd-setup-variables.yaml
+
+      # Push changes to v2-rnd-001.
+      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline add $(Agent.BuildDirectory)/asgardeo-deployment-pipeline/cd-pipelines/outbound-oidc-auth-service/v2-rnd-setup-variables.yaml
+      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline commit -m "[V2-Rnd] Update Outbound OIDC Auth Service info for the latest build - $(GITHUB_RELEASE_TAG)"
+      git -C $(Agent.BuildDirectory)/asgardeo-deployment-pipeline push origin v2-rnd-001
+      echo "[V2-Rnd] Build information update is completed!."
+    displayName: Update v2-rnd-setup-variable.yaml to trigger rnd deployment
+    #Call the template to send alert on the pipeline execution status.
+  - template: pipelines-templates/alerts/send-alert-ci.yaml@asgardeo-deployment-pipeline
+    parameters:
+      PIPELINE_NAME: 'outbound-oidc-auth-service-build'
+      REPO_URL: https://github.com/wso2-extensions/identity-outbound-oidc-auth-service
+      GOOGLE_CHAT_SPACE: $(GOOGLE-CHAT-SPACE)
+      GOOGLE_CHAT_KEY: $(GOOGLE-CHAT-KEY)
+      GOOGLE_CHAT_TOKEN: $(GOOGLE-CHAT-TOKEN)
