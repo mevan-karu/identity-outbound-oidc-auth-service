@@ -13,32 +13,32 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 public interface ProcessAuthRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest)
+    // @@protoc_insertion_point(interface_extends:com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext authenticationContext = 1;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext authenticationContext = 1;</code>
    */
   boolean hasAuthenticationContext();
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext authenticationContext = 1;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext authenticationContext = 1;</code>
    */
-  AuthenticationContext getAuthenticationContext();
+  com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext getAuthenticationContext();
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext authenticationContext = 1;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext authenticationContext = 1;</code>
    */
-  AuthenticationContextOrBuilder getAuthenticationContextOrBuilder();
+  com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContextOrBuilder getAuthenticationContextOrBuilder();
 
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.Request request = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.Request request = 2;</code>
    */
   boolean hasRequest();
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.Request request = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.Request request = 2;</code>
    */
-  Request getRequest();
+  com.wso2.identity.outbound.oidc.auth.service.rpc.Request getRequest();
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.Request request = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.Request request = 2;</code>
    */
-  RequestOrBuilder getRequestOrBuilder();
+  com.wso2.identity.outbound.oidc.auth.service.rpc.RequestOrBuilder getRequestOrBuilder();
 }

@@ -13,7 +13,7 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 public interface ProcessAuthResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:org.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
+    // @@protoc_insertion_point(interface_extends:com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -27,17 +27,17 @@ public interface ProcessAuthResponseOrBuilder extends
       getAuthenticationStatusBytes();
 
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
    */
   boolean hasAuthenticatedUser();
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
    */
-  AuthenticatedUser getAuthenticatedUser();
+  com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser getAuthenticatedUser();
   /**
-   * <code>.org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
+   * <code>.com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser authenticatedUser = 2;</code>
    */
-  AuthenticatedUserOrBuilder getAuthenticatedUserOrBuilder();
+  com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUserOrBuilder getAuthenticatedUserOrBuilder();
 
   /**
    * <code>map&lt;string, string&gt; authenticationData = 3;</code>

@@ -13,7 +13,7 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 public interface AuthenticationContextOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:org.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext)
+    // @@protoc_insertion_point(interface_extends:com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext)
     com.google.protobuf.MessageOrBuilder {
 
   /**

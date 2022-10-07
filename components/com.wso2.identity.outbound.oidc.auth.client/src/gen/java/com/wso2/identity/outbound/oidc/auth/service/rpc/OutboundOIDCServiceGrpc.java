@@ -10,12 +10,19 @@
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 
 /**
  */
@@ -26,44 +33,44 @@ public final class OutboundOIDCServiceGrpc {
 
   private OutboundOIDCServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "org.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService";
+  public static final String SERVICE_NAME = "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<Request,
-          CanHandleResponse> METHOD_CAN_HANDLE =
-      io.grpc.MethodDescriptor.<Request, CanHandleResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.wso2.identity.outbound.oidc.auth.service.rpc.Request,
+      com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse> METHOD_CAN_HANDLE =
+      io.grpc.MethodDescriptor.<com.wso2.identity.outbound.oidc.auth.service.rpc.Request, com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "org.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "canHandle"))
+              "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "canHandle"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              Request.getDefaultInstance()))
+              com.wso2.identity.outbound.oidc.auth.service.rpc.Request.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              CanHandleResponse.getDefaultInstance()))
+              com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<InitAuthRequest,
-          InitAuthResponse> METHOD_INITIATE_AUTHENTICATION =
-      io.grpc.MethodDescriptor.<InitAuthRequest, InitAuthResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest,
+      com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse> METHOD_INITIATE_AUTHENTICATION =
+      io.grpc.MethodDescriptor.<com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest, com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "org.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "initiateAuthentication"))
+              "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "initiateAuthentication"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              InitAuthRequest.getDefaultInstance()))
+              com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              InitAuthResponse.getDefaultInstance()))
+              com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<ProcessAuthRequest,
-          ProcessAuthResponse> METHOD_PROCESS_AUTHENTICATION_RESPONSE =
-      io.grpc.MethodDescriptor.<ProcessAuthRequest, ProcessAuthResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest,
+      com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse> METHOD_PROCESS_AUTHENTICATION_RESPONSE =
+      io.grpc.MethodDescriptor.<com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest, com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "org.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "processAuthenticationResponse"))
+              "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "processAuthenticationResponse"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              ProcessAuthRequest.getDefaultInstance()))
+              com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              ProcessAuthResponse.getDefaultInstance()))
+              com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -95,22 +102,22 @@ public final class OutboundOIDCServiceGrpc {
 
     /**
      */
-    public void canHandle(Request request,
-                          io.grpc.stub.StreamObserver<CanHandleResponse> responseObserver) {
+    public void canHandle(com.wso2.identity.outbound.oidc.auth.service.rpc.Request request,
+        io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_CAN_HANDLE, responseObserver);
     }
 
     /**
      */
-    public void initiateAuthentication(InitAuthRequest request,
-                                       io.grpc.stub.StreamObserver<InitAuthResponse> responseObserver) {
+    public void initiateAuthentication(com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest request,
+        io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_INITIATE_AUTHENTICATION, responseObserver);
     }
 
     /**
      */
-    public void processAuthenticationResponse(ProcessAuthRequest request,
-                                              io.grpc.stub.StreamObserver<ProcessAuthResponse> responseObserver) {
+    public void processAuthenticationResponse(com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest request,
+        io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_PROCESS_AUTHENTICATION_RESPONSE, responseObserver);
     }
 
@@ -120,22 +127,22 @@ public final class OutboundOIDCServiceGrpc {
             METHOD_CAN_HANDLE,
             asyncUnaryCall(
               new MethodHandlers<
-                      Request,
-                      CanHandleResponse>(
+                com.wso2.identity.outbound.oidc.auth.service.rpc.Request,
+                com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse>(
                   this, METHODID_CAN_HANDLE)))
           .addMethod(
             METHOD_INITIATE_AUTHENTICATION,
             asyncUnaryCall(
               new MethodHandlers<
-                      InitAuthRequest,
-                      InitAuthResponse>(
+                com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest,
+                com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse>(
                   this, METHODID_INITIATE_AUTHENTICATION)))
           .addMethod(
             METHOD_PROCESS_AUTHENTICATION_RESPONSE,
             asyncUnaryCall(
               new MethodHandlers<
-                      ProcessAuthRequest,
-                      ProcessAuthResponse>(
+                com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest,
+                com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse>(
                   this, METHODID_PROCESS_AUTHENTICATION_RESPONSE)))
           .build();
     }
@@ -161,24 +168,24 @@ public final class OutboundOIDCServiceGrpc {
 
     /**
      */
-    public void canHandle(Request request,
-                          io.grpc.stub.StreamObserver<CanHandleResponse> responseObserver) {
+    public void canHandle(com.wso2.identity.outbound.oidc.auth.service.rpc.Request request,
+        io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CAN_HANDLE, getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void initiateAuthentication(InitAuthRequest request,
-                                       io.grpc.stub.StreamObserver<InitAuthResponse> responseObserver) {
+    public void initiateAuthentication(com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest request,
+        io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_INITIATE_AUTHENTICATION, getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void processAuthenticationResponse(ProcessAuthRequest request,
-                                              io.grpc.stub.StreamObserver<ProcessAuthResponse> responseObserver) {
+    public void processAuthenticationResponse(com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest request,
+        io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_PROCESS_AUTHENTICATION_RESPONSE, getCallOptions()), request, responseObserver);
     }
@@ -204,21 +211,21 @@ public final class OutboundOIDCServiceGrpc {
 
     /**
      */
-    public CanHandleResponse canHandle(Request request) {
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse canHandle(com.wso2.identity.outbound.oidc.auth.service.rpc.Request request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CAN_HANDLE, getCallOptions(), request);
     }
 
     /**
      */
-    public InitAuthResponse initiateAuthentication(InitAuthRequest request) {
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse initiateAuthentication(com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_INITIATE_AUTHENTICATION, getCallOptions(), request);
     }
 
     /**
      */
-    public ProcessAuthResponse processAuthenticationResponse(ProcessAuthRequest request) {
+    public com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse processAuthenticationResponse(com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_PROCESS_AUTHENTICATION_RESPONSE, getCallOptions(), request);
     }
@@ -244,24 +251,24 @@ public final class OutboundOIDCServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<CanHandleResponse> canHandle(
-        Request request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse> canHandle(
+        com.wso2.identity.outbound.oidc.auth.service.rpc.Request request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CAN_HANDLE, getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<InitAuthResponse> initiateAuthentication(
-        InitAuthRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse> initiateAuthentication(
+        com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_INITIATE_AUTHENTICATION, getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<ProcessAuthResponse> processAuthenticationResponse(
-        ProcessAuthRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse> processAuthenticationResponse(
+        com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_PROCESS_AUTHENTICATION_RESPONSE, getCallOptions()), request);
     }
@@ -289,16 +296,16 @@ public final class OutboundOIDCServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CAN_HANDLE:
-          serviceImpl.canHandle((Request) request,
-              (io.grpc.stub.StreamObserver<CanHandleResponse>) responseObserver);
+          serviceImpl.canHandle((com.wso2.identity.outbound.oidc.auth.service.rpc.Request) request,
+              (io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse>) responseObserver);
           break;
         case METHODID_INITIATE_AUTHENTICATION:
-          serviceImpl.initiateAuthentication((InitAuthRequest) request,
-              (io.grpc.stub.StreamObserver<InitAuthResponse>) responseObserver);
+          serviceImpl.initiateAuthentication((com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest) request,
+              (io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse>) responseObserver);
           break;
         case METHODID_PROCESS_AUTHENTICATION_RESPONSE:
-          serviceImpl.processAuthenticationResponse((ProcessAuthRequest) request,
-              (io.grpc.stub.StreamObserver<ProcessAuthResponse>) responseObserver);
+          serviceImpl.processAuthenticationResponse((com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest) request,
+              (io.grpc.stub.StreamObserver<com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -319,7 +326,7 @@ public final class OutboundOIDCServiceGrpc {
   private static final class OutboundOIDCServiceDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return OutboundOIDCServiceOuterClass.getDescriptor();
+      return com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCServiceOuterClass.getDescriptor();
     }
   }
 
