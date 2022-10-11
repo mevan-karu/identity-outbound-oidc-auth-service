@@ -179,9 +179,13 @@ public class CustomOIDCAuthenticator extends AbstractApplicationAuthenticator
     protected void processAuthenticationResponse(HttpServletRequest request, HttpServletResponse response,
                                                  AuthenticationContext context) throws AuthenticationFailedException {
 
+        String queryString = request.getQueryString();
+        if (StringUtils.isEmpty(queryString)) {
+            queryString = StringUtils.EMPTY;
+        }
         Request req = Request.newBuilder()
                 .setRequestURL(request.getRequestURI())
-                .setQueryString(request.getQueryString())
+                .setQueryString(queryString)
                 .addRequestParams(
                         Request.RequestParam.newBuilder()
                         .setParamName(CustomOIDCAuthenticatorConstants.OAUTH2_PARAM_STATE)
