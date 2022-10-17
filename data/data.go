@@ -8,38 +8,28 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 
 	"google.golang.org/grpc/credentials"
 )
 
-// basepath is the root directory of this package.
-var basepath string
-
-func init() {
-	_, currentFile, _, _ := runtime.Caller(0)
-	basepath = filepath.Dir(currentFile)
-}
-
 // Path returns the absolute path the given relative file or directory path,
 // relative to the 'data' directory in the user's GOPATH.
 // If rel is already absolute, it is returned unmodified.
-func Path(rel string) string {
+func Path(rel string, basepath string) string {
+
 	if filepath.IsAbs(rel) {
 		return rel
 	}
-
 	return filepath.Join(basepath, rel)
 }
 
 // Read application properties file from the given path.
 // Returns a map of property name value pairs.
-func ReadApplicationPropertiesFile(app_prop_file string) (map[string]string, error) {
+func ReadApplicationPropertiesFile(appPropFileAbsPath string) (map[string]string, error) {
 
-	appPropFile := Path(app_prop_file)
 	appProps := make(map[string]string)
-	file, err := os.Open(appPropFile)
+	file, err := os.Open(appPropFileAbsPath)
 	if err != nil {
 		log.Fatal(err)
 		return nil, err
@@ -67,9 +57,9 @@ func ReadApplicationPropertiesFile(app_prop_file string) (map[string]string, err
 // Creates and returns the TLS config for the server.
 // Uses the .crt and .key files provided as the server key, server cert and client certs.
 // Returns MTLS config if `isClientAuthEnabled` is set to true.
-func GetServerTLSConfig(isClientAuthEnabled bool, serverCrtPath string, serverKeyPath string, clientCertsPath string) credentials.TransportCredentials {
+func GetServerTLSConfig(isClientAuthEnabled bool, serverCrtAbsPath string, serverKeyAbsPath string, clientCertsAbsPath string) credentials.TransportCredentials {
 
-	certificate, err := tls.LoadX509KeyPair(Path(serverCrtPath), Path(serverKeyPath))
+	certificate, err := tls.LoadX509KeyPair(serverCrtAbsPath, serverKeyAbsPath)
 	if err != nil {
 		panic("Error while loading server credentials: " + err.Error())
 	}
@@ -82,7 +72,7 @@ func GetServerTLSConfig(isClientAuthEnabled bool, serverCrtPath string, serverKe
 		return credentials.NewTLS(tlsConfig)
 	}
 
-	data, err := ioutil.ReadFile(Path(clientCertsPath))
+	data, err := ioutil.ReadFile(clientCertsAbsPath)
 	if err != nil {
 		panic("Error while loading client certificates: " + err.Error())
 	}

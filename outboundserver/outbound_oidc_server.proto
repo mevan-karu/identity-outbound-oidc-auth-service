@@ -3,6 +3,16 @@ option go_package = "wso2-enterprise/identity-outbound-oidc-auth-service/outboun
 option java_package = "com.wso2.identity.outbound.oidc.auth.service.rpc";
 option java_multiple_files = true;
 
+enum AuthenticatorFlowStatus {
+
+  SUCCESS_COMPLETED = 0;
+  FAIL_COMPLETED = 1;
+  INCOMPLETE = 2;
+  UNKNOWN = 3;
+  FALLBACK = 4;
+  USER_ABORT = 5;
+}
+
 message Request {
 
   message RequestParam {
@@ -49,7 +59,7 @@ message ProcessAuthRequest {
 
 message ProcessAuthResponse {
 
-  string authenticationStatus = 1;
+  AuthenticatorFlowStatus authenticationStatus = 1;
   AuthenticatedUser authenticatedUser = 2;
   map<string, string> authenticationData = 3;
 }
