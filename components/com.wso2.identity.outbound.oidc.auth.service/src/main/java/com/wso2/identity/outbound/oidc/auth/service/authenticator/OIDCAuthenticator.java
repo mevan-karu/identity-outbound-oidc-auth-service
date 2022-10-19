@@ -12,6 +12,7 @@ package com.wso2.identity.outbound.oidc.auth.service.authenticator;
 
 import com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatedUser;
 import com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticationContext;
+import com.wso2.identity.outbound.oidc.auth.service.rpc.AuthenticatorFlowStatus;
 import com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest;
 import com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest;
 import com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse;
@@ -169,6 +170,7 @@ public class OIDCAuthenticator {
                     .setIsFederatedUser(true)
                     .putAllUserAttributes(userAttributes).build();
             ProcessAuthResponse processAuthResponse = ProcessAuthResponse.newBuilder()
+                    .setAuthenticationStatus(AuthenticatorFlowStatus.SUCCESS_COMPLETED)
                     .putAuthenticationData(OIDCAuthenticatorConstants.ACCESS_TOKEN, accessToken)
                     .putAuthenticationData(OIDCAuthenticatorConstants.ID_TOKEN, idToken)
                     .setAuthenticatedUser(authenticatedUser)

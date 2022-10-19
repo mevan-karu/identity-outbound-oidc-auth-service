@@ -1,15 +1,26 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * This software is the property of WSO2 LLC. and its suppliers, if any.
  * Dissemination of any information or reproduction of any material contained
  * herein in any form is strictly forbidden, unless permitted by WSO2 expressly.
- * You may not alter or remove any copyright or other notice from copies of this content."
+ * You may not alter or remove any copyright or other notice from copies of this content.
  */
 
 syntax = "proto3";
+option go_package = "wso2-enterprise/identity-outbound-oidc-auth-service/outboundserver";
+option java_package = "com.wso2.identity.outbound.oidc.auth.service.rpc";
 option java_multiple_files = true;
-package com.wso2.identity.outbound.oidc.auth.service.rpc;
+
+enum AuthenticatorFlowStatus {
+
+  SUCCESS_COMPLETED = 0;
+  FAIL_COMPLETED = 1;
+  INCOMPLETE = 2;
+  UNKNOWN = 3;
+  FALLBACK = 4;
+  USER_ABORT = 5;
+}
 
 message Request {
 
@@ -57,7 +68,7 @@ message ProcessAuthRequest {
 
 message ProcessAuthResponse {
 
-  string authenticationStatus = 1;
+  AuthenticatorFlowStatus authenticationStatus = 1;
   AuthenticatedUser authenticatedUser = 2;
   map<string, string> authenticationData = 3;
 }
@@ -70,9 +81,9 @@ message AuthenticatedUser {
 
 service OutboundOIDCService {
 
-  rpc canHandle(Request) returns (CanHandleResponse);
+  rpc CanHandle(Request) returns (CanHandleResponse);
 
-  rpc initiateAuthentication(InitAuthRequest) returns (InitAuthResponse);
+  rpc InitiateAuthentication(InitAuthRequest) returns (InitAuthResponse);
 
-  rpc processAuthenticationResponse(ProcessAuthRequest) returns (ProcessAuthResponse);
+  rpc ProcessAuthenticationResponse(ProcessAuthRequest) returns (ProcessAuthResponse);
 }
