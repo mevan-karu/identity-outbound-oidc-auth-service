@@ -1,12 +1,3 @@
-/**
- * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
- *
- * This software is the property of WSO2 LLC. and its suppliers, if any.
- * Dissemination of any information or reproduction of any material contained
- * herein in any form is strictly forbidden, unless permitted by WSO2 expressly.
- * You may not alter or remove any copyright or other notice from copies of this content.
- */
-
 package com.wso2.identity.outbound.oidc.auth.service.rpc;
 
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
@@ -33,7 +24,7 @@ public final class OutboundOIDCServiceGrpc {
 
   private OutboundOIDCServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService";
+  public static final String SERVICE_NAME = "OutboundOIDCService";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
@@ -42,7 +33,7 @@ public final class OutboundOIDCServiceGrpc {
       io.grpc.MethodDescriptor.<com.wso2.identity.outbound.oidc.auth.service.rpc.Request, com.wso2.identity.outbound.oidc.auth.service.rpc.CanHandleResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "canHandle"))
+              "OutboundOIDCService", "CanHandle"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               com.wso2.identity.outbound.oidc.auth.service.rpc.Request.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
@@ -54,7 +45,7 @@ public final class OutboundOIDCServiceGrpc {
       io.grpc.MethodDescriptor.<com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest, com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "initiateAuthentication"))
+              "OutboundOIDCService", "InitiateAuthentication"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               com.wso2.identity.outbound.oidc.auth.service.rpc.InitAuthRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
@@ -66,7 +57,7 @@ public final class OutboundOIDCServiceGrpc {
       io.grpc.MethodDescriptor.<com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest, com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "com.wso2.identity.outbound.oidc.auth.service.rpc.OutboundOIDCService", "processAuthenticationResponse"))
+              "OutboundOIDCService", "ProcessAuthenticationResponse"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               com.wso2.identity.outbound.oidc.auth.service.rpc.ProcessAuthRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
